@@ -308,6 +308,20 @@
       margin-bottom: 0.15rem;
     }
 
+    .rec-card a, .rec-card .rec-address a,
+    .decision-option a,
+    .rest-table a {
+      color: var(--turquoise);
+      text-decoration: none;
+      font-weight: inherit;
+    }
+
+    .rec-card a:hover, .rec-card .rec-address a:hover,
+    .decision-option a:hover,
+    .rest-table a:hover {
+      text-decoration: underline;
+    }
+
     .rec-card .rec-address {
       font-size: 0.78rem;
       color: var(--warm-gray);
@@ -974,14 +988,14 @@
               <input type="radio" name="fri-lunch" value="madrid">
               <div class="decision-option-content">
                 <div class="decision-option-name"><span>Madrid (along the trail)</span> <span class="vote-avatars" data-slot="fri-lunch:madrid"></span></div>
-                <div class="decision-option-desc">Java Junction or Mine Shaft Tavern — grab a bite during the Turquoise Trail drive</div>
+                <div class="decision-option-desc">Java Junction or <a href="https://www.themineshafttavern.com/" target="_blank">Mine Shaft Tavern</a> — grab a bite during the Turquoise Trail drive</div>
                 <div class="vote-count-bar" data-bar="fri-lunch:madrid"><div class="vote-bar-track"><div class="vote-bar-fill" style="width:0%"></div></div><span class="vote-count-label">0 votes</span></div>
               </div>
             </label>
             <label class="decision-option" data-value="annapurnas">
               <input type="radio" name="fri-lunch" value="annapurnas">
               <div class="decision-option-content">
-                <div class="decision-option-name"><span>Annapurna's World Vegetarian Cafe</span> <span class="vote-avatars" data-slot="fri-lunch:annapurnas"></span></div>
+                <div class="decision-option-name"><span><a href="https://chaishoppe.com/" target="_blank">Annapurna's World Vegetarian Cafe</a></span> <span class="vote-avatars" data-slot="fri-lunch:annapurnas"></span></div>
                 <div class="decision-option-desc">Wait until Santa Fe (~2:30pm). Fully vegan, global flavors. On your way into town from NM-14.</div>
                 <div class="vote-count-bar" data-bar="fri-lunch:annapurnas"><div class="vote-bar-track"><div class="vote-bar-fill" style="width:0%"></div></div><span class="vote-count-label">0 votes</span></div>
               </div>
@@ -995,7 +1009,7 @@
             <label class="decision-option" data-value="pasquals">
               <input type="radio" name="fri-dinner" value="pasquals">
               <div class="decision-option-content">
-                <div class="decision-option-name"><span>Cafe Pasqual's ⭐</span> <span class="vote-avatars" data-slot="fri-dinner:pasquals"></span></div>
+                <div class="decision-option-name"><span><a href="https://pasquals.com/" target="_blank">Cafe Pasqual's</a> ⭐</span> <span class="vote-avatars" data-slot="fri-dinner:pasquals"></span></div>
                 <div class="decision-option-desc">Iconic Santa Fe. Tofu Mole Enchiladas, Bengal Red Dal. Book now: (505) 983-9340</div>
                 <div class="vote-count-bar" data-bar="fri-dinner:pasquals"><div class="vote-bar-track"><div class="vote-bar-fill" style="width:0%"></div></div><span class="vote-count-label">0 votes</span></div>
               </div>
@@ -1003,7 +1017,7 @@
             <label class="decision-option" data-value="coyote">
               <input type="radio" name="fri-dinner" value="coyote">
               <div class="decision-option-content">
-                <div class="decision-option-name"><span>Coyote Cafe Rooftop Cantina</span> <span class="vote-avatars" data-slot="fri-dinner:coyote"></span></div>
+                <div class="decision-option-name"><span><a href="https://www.coyotecafe.com/cantina" target="_blank">Coyote Cafe Rooftop Cantina</a></span> <span class="vote-avatars" data-slot="fri-dinner:coyote"></span></div>
                 <div class="decision-option-desc">Great rooftop vibes. Vegan tacos (no cotija). Better as drinks + small plates. (505) 983-1615</div>
                 <div class="vote-count-bar" data-bar="fri-dinner:coyote"><div class="vote-bar-track"><div class="vote-bar-fill" style="width:0%"></div></div><span class="vote-count-label">0 votes</span></div>
               </div>
@@ -1026,7 +1040,7 @@
             <label class="decision-option" data-value="jambo">
               <input type="radio" name="sat-lunch" value="jambo">
               <div class="decision-option-content">
-                <div class="decision-option-name"><span>Jambo Cafe ⭐</span> <span class="vote-avatars" data-slot="sat-lunch:jambo"></span></div>
+                <div class="decision-option-name"><span><a href="https://www.jambocafe.net/" target="_blank">Jambo Cafe</a> ⭐</span> <span class="vote-avatars" data-slot="sat-lunch:jambo"></span></div>
                 <div class="decision-option-desc">African-Caribbean. Curried Black Bean Soup, Coconut Tofu Curry, Hummus Plate. 10 min drive. (505) 473-1269</div>
                 <div class="vote-count-bar" data-bar="sat-lunch:jambo"><div class="vote-bar-track"><div class="vote-bar-fill" style="width:0%"></div></div><span class="vote-count-label">0 votes</span></div>
               </div>
@@ -1034,7 +1048,7 @@
             <label class="decision-option" data-value="shed">
               <input type="radio" name="sat-lunch" value="shed">
               <div class="decision-option-content">
-                <div class="decision-option-name"><span>The Shed</span> <span class="vote-avatars" data-slot="sat-lunch:shed"></span></div>
+                <div class="decision-option-name"><span><a href="https://sfshed.com/" target="_blank">The Shed</a></span> <span class="vote-avatars" data-slot="sat-lunch:shed"></span></div>
                 <div class="decision-option-desc">Classic NM since 1953. Famous chile. Limited vegan but iconic atmosphere. Walk-ins only, 11am–2:30pm.</div>
                 <div class="vote-count-bar" data-bar="sat-lunch:shed"><div class="vote-bar-track"><div class="vote-bar-fill" style="width:0%"></div></div><span class="vote-count-label">0 votes</span></div>
               </div>
@@ -1048,7 +1062,7 @@
             <label class="decision-option" data-value="annapurnas-dinner">
               <input type="radio" name="sat-dinner" value="annapurnas-dinner">
               <div class="decision-option-content">
-                <div class="decision-option-name"><span>Annapurna's World Vegetarian Cafe ⭐</span> <span class="vote-avatars" data-slot="sat-dinner:annapurnas-dinner"></span></div>
+                <div class="decision-option-name"><span><a href="https://chaishoppe.com/" target="_blank">Annapurna's World Vegetarian Cafe</a> ⭐</span> <span class="vote-avatars" data-slot="sat-dinner:annapurnas-dinner"></span></div>
                 <div class="decision-option-desc">5 min from Meow Wolf. Fully vegan. Pad thai, enchiladas, masala fries, golden milk.</div>
                 <div class="vote-count-bar" data-bar="sat-dinner:annapurnas-dinner"><div class="vote-bar-track"><div class="vote-bar-fill" style="width:0%"></div></div><span class="vote-count-label">0 votes</span></div>
               </div>
@@ -1056,7 +1070,7 @@
             <label class="decision-option" data-value="onesacred">
               <input type="radio" name="sat-dinner" value="onesacred">
               <div class="decision-option-content">
-                <div class="decision-option-name"><span>Apothecary Dining at One Sacred</span> <span class="vote-avatars" data-slot="sat-dinner:onesacred"></span></div>
+                <div class="decision-option-name"><span><a href="https://www.onesacred.com/" target="_blank">Apothecary Dining at One Sacred</a></span> <span class="vote-avatars" data-slot="sat-dinner:onesacred"></span></div>
                 <div class="decision-option-desc">Splurge option on the Plaza. Always GF, vegan options. Elevated, healing-focused dining.</div>
                 <div class="vote-count-bar" data-bar="sat-dinner:onesacred"><div class="vote-bar-track"><div class="vote-bar-fill" style="width:0%"></div></div><span class="vote-count-label">0 votes</span></div>
               </div>
@@ -1109,7 +1123,7 @@
             <label class="decision-option" data-value="sweetwater">
               <input type="radio" name="sun-dinner" value="sweetwater">
               <div class="decision-option-content">
-                <div class="decision-option-name"><span>Sweetwater Harvest Kitchen ⭐</span> <span class="vote-avatars" data-slot="sun-dinner:sweetwater"></span></div>
+                <div class="decision-option-name"><span><a href="https://www.sweetwatersf.com/" target="_blank">Sweetwater Harvest Kitchen</a> ⭐</span> <span class="vote-avatars" data-slot="sun-dinner:sweetwater"></span></div>
                 <div class="decision-option-desc">Best Vegetarian + Best GF in Santa Fe. Jackfruit Tacos, Quinoa Enchilada Bake, Vegan Chili Cheese Fries. Dinner 5–8pm. (505) 795-7383</div>
                 <div class="vote-count-bar" data-bar="sun-dinner:sweetwater"><div class="vote-bar-track"><div class="vote-bar-fill" style="width:0%"></div></div><span class="vote-count-label">0 votes</span></div>
               </div>
@@ -1117,7 +1131,7 @@
             <label class="decision-option" data-value="pasquals-sun">
               <input type="radio" name="sun-dinner" value="pasquals-sun">
               <div class="decision-option-content">
-                <div class="decision-option-name"><span>Cafe Pasqual's</span> <span class="vote-avatars" data-slot="sun-dinner:pasquals-sun"></span></div>
+                <div class="decision-option-name"><span><a href="https://pasquals.com/" target="_blank">Cafe Pasqual's</a></span> <span class="vote-avatars" data-slot="sun-dinner:pasquals-sun"></span></div>
                 <div class="decision-option-desc">If you didn't go Friday. Tofu Mole Enchiladas, Bengal Red Dal.</div>
                 <div class="vote-count-bar" data-bar="sun-dinner:pasquals-sun"><div class="vote-bar-track"><div class="vote-bar-fill" style="width:0%"></div></div><span class="vote-count-label">0 votes</span></div>
               </div>
@@ -1125,7 +1139,7 @@
             <label class="decision-option" data-value="jambo-sun">
               <input type="radio" name="sun-dinner" value="jambo-sun">
               <div class="decision-option-content">
-                <div class="decision-option-name"><span>Jambo Cafe</span> <span class="vote-avatars" data-slot="sun-dinner:jambo-sun"></span></div>
+                <div class="decision-option-name"><span><a href="https://www.jambocafe.net/" target="_blank">Jambo Cafe</a></span> <span class="vote-avatars" data-slot="sun-dinner:jambo-sun"></span></div>
                 <div class="decision-option-desc">If you didn't go Saturday. Note: closed Sundays — swap with another day.</div>
                 <div class="vote-count-bar" data-bar="sun-dinner:jambo-sun"><div class="vote-bar-track"><div class="vote-bar-fill" style="width:0%"></div></div><span class="vote-count-label">0 votes</span></div>
               </div>
@@ -1232,13 +1246,13 @@
             <div class="rec-name">Option A: Grab lunch in Madrid</div>
             <div class="rec-detail">
               <strong>Java Junction</strong> (2855 NM-14) — Small cafe, outdoor seating, coffee & light bites. Call ahead for vegan options: (505) 438-2772.<br>
-              <strong>Mine Shaft Tavern</strong> (2846 NM-14) — Historic saloon with veggie burger & salads (ask for vegan). Live music on weekends.
+              <strong><a href="https://www.themineshafttavern.com/" target="_blank">Mine Shaft Tavern</a></strong> (2846 NM-14) — Historic saloon with veggie burger & salads (ask for vegan). Live music on weekends.
             </div>
           </div>
 
           <div class="rec-card">
             <div class="rec-name">Option B: Wait for Santa Fe (~2:30pm)</div>
-            <div class="rec-address">Annapurna's World Vegetarian Cafe · 1620 St Michaels Dr</div>
+            <div class="rec-address"><a href="https://chaishoppe.com/" target="_blank">Annapurna's World Vegetarian Cafe</a> · 1620 St Michaels Dr</div>
             <div class="rec-detail">Fully vegan/vegetarian with global flavors — masala fries, pad thai, cauliflower tacos, Mediterranean platter. Women-owned. On your way into town from NM-14.</div>
             <div class="rec-vegan"><span class="tag tag-vegan">100% Veg/Vegan</span></div>
           </div>
@@ -1277,7 +1291,7 @@
           <p><span class="tag tag-restaurant">Dinner</span></p>
 
           <div class="rec-card">
-            <div class="rec-name">Top Pick: Cafe Pasqual's</div>
+            <div class="rec-name">Top Pick: <a href="https://pasquals.com/" target="_blank">Cafe Pasqual's</a></div>
             <div class="rec-address">121 Don Gaspar Ave · 5 min walk from hotel</div>
             <div class="rec-detail">Iconic Santa Fe restaurant. Vegan options: Tofu Mole Enchiladas ($29), Bengal Red Dal with green chile, turmeric, cauliflower &amp; spinach over jasmine rice ($27).</div>
             <div class="rec-vegan"><span class="tag tag-vegan">Vegan-Friendly</span></div>
@@ -1285,7 +1299,7 @@
           </div>
 
           <div class="rec-card alt">
-            <div class="rec-name">Backup: Coyote Cafe Rooftop Cantina</div>
+            <div class="rec-name">Backup: <a href="https://www.coyotecafe.com/cantina" target="_blank">Coyote Cafe Rooftop Cantina</a></div>
             <div class="rec-address">132 W Water St · 5 min walk</div>
             <div class="rec-detail">Great rooftop vibe. Vegetarian tacos (skip cotija for vegan) with zucchini, squash, corn, black beans &amp; avocado. Better as a drinks + small plates stop. (505) 983-1615.</div>
           </div>
@@ -1340,14 +1354,14 @@
           <p><span class="tag tag-restaurant">Lunch</span></p>
 
           <div class="rec-card">
-            <div class="rec-name">Top Pick: Jambo Cafe</div>
+            <div class="rec-name">Top Pick: <a href="https://www.jambocafe.net/" target="_blank">Jambo Cafe</a></div>
             <div class="rec-address">2010 Cerrillos Rd · 10 min drive from hotel</div>
             <div class="rec-detail">African-Caribbean flavors. Vegan options: Curried Black Bean &amp; Sweet Potato Soup (award-winning), Coconut Organic Tofu Curry with basmati rice, Sweet Smoked Paprika Hummus Plate. Open 11am–9pm, closed Sundays. (505) 473-1269.</div>
             <div class="rec-vegan"><span class="tag tag-vegan">Vegan-Friendly</span></div>
           </div>
 
           <div class="rec-card alt">
-            <div class="rec-name">Backup: The Shed</div>
+            <div class="rec-name">Backup: <a href="https://sfshed.com/" target="_blank">The Shed</a></div>
             <div class="rec-address">113½ E Palace Ave · 5 min walk from hotel</div>
             <div class="rec-detail">Santa Fe institution since 1953. Famous red &amp; green chile. Limited vegan (salads, beans, rice) but iconic atmosphere. Walk-ins for lunch only (11am–2:30pm).</div>
           </div>
@@ -1382,14 +1396,14 @@
           <p><span class="tag tag-restaurant">Dinner</span></p>
 
           <div class="rec-card">
-            <div class="rec-name">Top Pick: Annapurna's World Vegetarian Cafe</div>
+            <div class="rec-name">Top Pick: <a href="https://chaishoppe.com/" target="_blank">Annapurna's World Vegetarian Cafe</a></div>
             <div class="rec-address">1620 St Michaels Dr · 5 min from Meow Wolf</div>
             <div class="rec-detail">Perfect post-Meow Wolf dinner. Fully vegan/vegetarian. Global comfort food — pad thai, enchiladas, masala fries, golden milk. Casual and cozy.</div>
             <div class="rec-vegan"><span class="tag tag-vegan">100% Veg/Vegan</span></div>
           </div>
 
           <div class="rec-card alt">
-            <div class="rec-name">Splurge: Apothecary Dining at One Sacred</div>
+            <div class="rec-name">Splurge: <a href="https://www.onesacred.com/" target="_blank">Apothecary Dining at One Sacred</a></div>
             <div class="rec-address">133 W San Francisco St · on the Plaza</div>
             <div class="rec-detail">Always gluten-free, vegan &amp; vegetarian options. Quality oils (avocado, coconut, olive), sea salt, organic produce. Elevated, healing-focused dining. Check hours: <a href="https://www.onesacred.com" target="_blank">onesacred.com</a></div>
           </div>
@@ -1480,19 +1494,19 @@
           <p><span class="tag tag-restaurant">Dinner</span></p>
 
           <div class="rec-card">
-            <div class="rec-name">Top Pick: Sweetwater Harvest Kitchen</div>
+            <div class="rec-name">Top Pick: <a href="https://www.sweetwatersf.com/" target="_blank">Sweetwater Harvest Kitchen</a></div>
             <div class="rec-address">1512 Pacheco St · 10 min drive</div>
             <div class="rec-detail">Named Santa Fe's Best Vegetarian + Best GF Restaurant. Entirely gluten-free kitchen. Vegan options: Scrambled Tofu, Pumpkin Quinoa Veggie Burger, Quinoa Enchilada Bake, Jackfruit Tacos, Vegan Chili Cheese Fries. Dinner Tues–Sat 5–8pm. (505) 795-7383.</div>
             <div class="rec-vegan"><span class="tag tag-vegan">Vegan-Friendly · All GF</span></div>
           </div>
 
           <div class="rec-card alt">
-            <div class="rec-name">Backup: Jambo Cafe (if you didn't go Saturday)</div>
+            <div class="rec-name">Backup: <a href="https://www.jambocafe.net/" target="_blank">Jambo Cafe</a> (if you didn't go Saturday)</div>
             <div class="rec-address">2010 Cerrillos Rd · Closed Sundays — swap days if needed</div>
           </div>
 
           <div class="rec-card alt">
-            <div class="rec-name">Backup: Cafe Pasqual's (if you didn't go Friday)</div>
+            <div class="rec-name">Backup: <a href="https://pasquals.com/" target="_blank">Cafe Pasqual's</a> (if you didn't go Friday)</div>
             <div class="rec-address">121 Don Gaspar Ave</div>
           </div>
         </div>
@@ -1517,7 +1531,7 @@
         <div class="event-body">
           <p>Sleep in, grab breakfast at the Inn, or walk to a nearby cafe.</p>
           <div class="rec-card">
-            <div class="rec-name">Breakfast idea: Cafe Pasqual's</div>
+            <div class="rec-name">Breakfast idea: <a href="https://pasquals.com/" target="_blank">Cafe Pasqual's</a></div>
             <div class="rec-address">121 Don Gaspar Ave · Open 8am–3pm</div>
             <div class="rec-detail">If you haven't been yet — the vegan options are great in the morning too (tofu chorizo burrito, etc.).</div>
           </div>
@@ -1535,7 +1549,7 @@
         <div class="event-title">Optional: Lunch in Albuquerque</div>
         <div class="event-body">
           <div class="rec-card">
-            <div class="rec-name">Vegos</div>
+            <div class="rec-name"><a href="https://www.vegosabq.com/" target="_blank">Vegos</a></div>
             <div class="rec-address">2904 Indian School Rd NE · 15 min from airport</div>
             <div class="rec-detail">100% vegan New Mexican food — burritos, enchiladas, tamales. Open Wed–Sun 11am–8pm. A perfect final NM meal.</div>
             <div class="rec-vegan"><span class="tag tag-vegan">100% Vegan</span></div>
@@ -1562,15 +1576,15 @@
           <tr><th>Restaurant</th><th>Vegan Level</th><th>Best For</th><th>Location</th><th>Price</th></tr>
         </thead>
         <tbody>
-          <tr><td><strong>Annapurna's</strong></td><td class="vegan-full">Fully Veg/Vegan</td><td>Any meal</td><td>1620 St Michaels Dr</td><td>$$</td></tr>
-          <tr><td><strong>Cafe Pasqual's</strong></td><td class="vegan-friendly">Vegan-Friendly</td><td>Dinner or breakfast</td><td>121 Don Gaspar Ave</td><td>$$$</td></tr>
-          <tr><td><strong>Jambo Cafe</strong></td><td class="vegan-friendly">Vegan-Friendly</td><td>Lunch/dinner (closed Sun)</td><td>2010 Cerrillos Rd</td><td>$$</td></tr>
-          <tr><td><strong>Izanami</strong></td><td class="vegan-friendly">Vegan-Friendly</td><td>Sunday lunch (reserved)</td><td>Ten Thousand Waves</td><td>$$$</td></tr>
-          <tr><td><strong>Sweetwater Harvest</strong></td><td class="vegan-friendly">Vegan-Friendly · All GF</td><td>Dinner (Tues–Sat 5–8pm)</td><td>1512 Pacheco St</td><td>$$</td></tr>
-          <tr><td><strong>Apothecary / One Sacred</strong></td><td class="vegan-friendly">Vegan-Friendly · All GF</td><td>Special dinner</td><td>133 W San Francisco St</td><td>$$$</td></tr>
-          <tr><td><strong>The Shed</strong></td><td class="vegan-limited">Limited Vegan</td><td>Classic NM experience</td><td>113½ E Palace Ave</td><td>$$</td></tr>
-          <tr><td><strong>Coyote Cafe Rooftop</strong></td><td class="vegan-limited">Limited Vegan</td><td>Drinks &amp; rooftop vibes</td><td>132 W Water St</td><td>$$$</td></tr>
-          <tr><td><strong>Vegos</strong> (ABQ)</td><td class="vegan-full">Fully Vegan</td><td>Monday departure lunch</td><td>2904 Indian School Rd</td><td>$</td></tr>
+          <tr><td><strong><a href="https://chaishoppe.com/" target="_blank">Annapurna's</a></strong></td><td class="vegan-full">Fully Veg/Vegan</td><td>Any meal</td><td>1620 St Michaels Dr</td><td>$$</td></tr>
+          <tr><td><strong><a href="https://pasquals.com/" target="_blank">Cafe Pasqual's</a></strong></td><td class="vegan-friendly">Vegan-Friendly</td><td>Dinner or breakfast</td><td>121 Don Gaspar Ave</td><td>$$$</td></tr>
+          <tr><td><strong><a href="https://www.jambocafe.net/" target="_blank">Jambo Cafe</a></strong></td><td class="vegan-friendly">Vegan-Friendly</td><td>Lunch/dinner (closed Sun)</td><td>2010 Cerrillos Rd</td><td>$$</td></tr>
+          <tr><td><strong><a href="https://tenthousandwaves.com/food/menus" target="_blank">Izanami</a></strong></td><td class="vegan-friendly">Vegan-Friendly</td><td>Sunday lunch (reserved)</td><td>Ten Thousand Waves</td><td>$$$</td></tr>
+          <tr><td><strong><a href="https://www.sweetwatersf.com/" target="_blank">Sweetwater Harvest</a></strong></td><td class="vegan-friendly">Vegan-Friendly · All GF</td><td>Dinner (Tues–Sat 5–8pm)</td><td>1512 Pacheco St</td><td>$$</td></tr>
+          <tr><td><strong><a href="https://www.onesacred.com/" target="_blank">Apothecary / One Sacred</a></strong></td><td class="vegan-friendly">Vegan-Friendly · All GF</td><td>Special dinner</td><td>133 W San Francisco St</td><td>$$$</td></tr>
+          <tr><td><strong><a href="https://sfshed.com/" target="_blank">The Shed</a></strong></td><td class="vegan-limited">Limited Vegan</td><td>Classic NM experience</td><td>113½ E Palace Ave</td><td>$$</td></tr>
+          <tr><td><strong><a href="https://www.coyotecafe.com/cantina" target="_blank">Coyote Cafe Rooftop</a></strong></td><td class="vegan-limited">Limited Vegan</td><td>Drinks &amp; rooftop vibes</td><td>132 W Water St</td><td>$$$</td></tr>
+          <tr><td><strong><a href="https://www.vegosabq.com/" target="_blank">Vegos</a></strong> (ABQ)</td><td class="vegan-full">Fully Vegan</td><td>Monday departure lunch</td><td>2904 Indian School Rd</td><td>$</td></tr>
         </tbody>
       </table>
     </div>
