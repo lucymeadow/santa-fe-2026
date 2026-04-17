@@ -825,6 +825,68 @@
     .poll-body { display: none; }
     .poll-body.visible { display: block; }
 
+    /* Share button */
+    .share-bar {
+      margin-top: 1.5rem;
+      text-align: center;
+    }
+
+    .share-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.7rem 1.5rem;
+      border-radius: 2rem;
+      border: none;
+      background: var(--turquoise);
+      color: white;
+      font-family: inherit;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      box-shadow: 0 2px 8px rgba(58,175,169,0.3);
+    }
+
+    .share-btn:hover {
+      background: #2E9E98;
+      box-shadow: 0 4px 12px rgba(58,175,169,0.4);
+      transform: translateY(-1px);
+    }
+
+    .share-btn:active { transform: translateY(0); }
+
+    .share-btn .share-icon { font-size: 1.1rem; }
+
+    .share-toast {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: var(--night);
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      z-index: 1000;
+      opacity: 0;
+      transition: all 0.3s ease;
+      pointer-events: none;
+    }
+
+    .share-toast.visible {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .share-hint {
+      font-size: 0.78rem;
+      color: var(--warm-gray);
+      margin-top: 0.6rem;
+    }
+
     /* Footer */
     footer {
       text-align: center;
@@ -1072,8 +1134,17 @@
         </div>
       </div>
 
+      <div class="share-bar">
+        <button class="share-btn" onclick="shareResults()">
+          <span class="share-icon">📋</span> Share My Votes
+        </button>
+        <p class="share-hint">Copies your votes to clipboard — paste in the group chat so everyone can compare!</p>
+      </div>
+
     </div>
   </section>
+
+  <div class="share-toast" id="shareToast">Copied to clipboard! Paste it in the group chat 💬</div>
 
   <!-- ===== TRAVEL & LODGING ===== -->
   <div class="info-banner" id="travel">
@@ -1711,6 +1782,69 @@
   }
 
   initPoll();
+
+  // Share results
+  const optionLabels = {
+    'fri-lunch': { question: 'Friday Lunch', madrid: 'Madrid (Turquoise Trail)', annapurnas: "Annapurna's" },
+    'fri-dinner': { question: 'Friday Dinner', pasquals: "Cafe Pasqual's", coyote: 'Coyote Cafe Rooftop' },
+    'sat-lunch': { question: 'Saturday Lunch', jambo: 'Jambo Cafe', shed: 'The Shed' },
+    'sat-dinner': { question: 'Saturday Dinner', 'annapurnas-dinner': "Annapurna's", onesacred: 'Apothecary / One Sacred' },
+    'sun-afternoon': { question: 'Sunday Afternoon', 'canyon-road': 'Canyon Road Galleries', museums: 'Museums', relaxed: 'Relaxed / Plaza' },
+    'sun-dinner': { question: 'Sunday Dinner', sweetwater: 'Sweetwater Harvest Kitchen', 'pasquals-sun': "Cafe Pasqual's", 'jambo-sun': 'Jambo Cafe' }
+  };
+
+  function shareResults() {
+    if (!currentVoter) return;
+
+    const poll = loadPoll();
+    const myVotes = poll[currentVoter] || {};
+    const name = currentVoter.charAt(0).toUpperCase() + currentVoter.slice(1);
+
+    let lines = [`🌵 ${name}'s Santa Fe Votes 🌵`, ''];
+
+    QUESTIONS.forEach(q => {
+      const info = optionLabels[q];
+      const pick = myVotes[q];
+      if (pick) {
+        lines.push(`${info.question}: ${info[pick]}`);
+      } else {
+        lines.push(`${info.question}: (not voted yet)`);
+      }
+    });
+
+    lines.push('');
+    lines.push('Vote here 👉 https://lucymeadow.github.io/santa-fe-2026/');
+
+    const text = lines.join('\n');
+
+    if (navigator.share) {
+      navigator.share({ text: text }).catch(() => copyFallback(text));
+    } else {
+      copyFallback(text);
+    }
+  }
+
+  function copyFallback(text) {
+    navigator.clipboard.writeText(text).then(() => {
+      showToast();
+    }).catch(() => {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+      showToast();
+    });
+  }
+
+  function showToast() {
+    const toast = document.getElementById('shareToast');
+    toast.classList.add('visible');
+    setTimeout(() => toast.classList.remove('visible'), 3000);
+  }
 </script>
 
 </body>
