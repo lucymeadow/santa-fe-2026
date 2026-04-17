@@ -512,7 +512,7 @@
     .vegan-friendly { color: var(--sage); font-weight: 500; }
     .vegan-limited { color: var(--warm-gray); }
 
-    /* Decisions */
+    /* Decisions / Poll */
     .decisions-section {
       margin-top: 2rem;
       scroll-margin-top: 60px;
@@ -530,6 +530,68 @@
       margin-bottom: 1.2rem;
     }
 
+    /* Voter picker */
+    .voter-picker {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1.2rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .voter-picker-label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--warm-gray);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-right: 0.3rem;
+    }
+
+    .voter-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.45rem 1rem;
+      border-radius: 2rem;
+      border: 2px solid #E0E0E0;
+      background: var(--white);
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--night);
+      transition: all 0.2s;
+      font-family: inherit;
+    }
+
+    .voter-btn:hover { border-color: var(--turquoise); }
+
+    .voter-btn.active {
+      border-color: var(--turquoise);
+      background: var(--turquoise);
+      color: white;
+    }
+
+    .voter-btn .voter-avatar {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: white;
+      flex-shrink: 0;
+    }
+
+    .voter-btn.active .voter-avatar { background: rgba(255,255,255,0.3); }
+
+    .avatar-lucy { background: var(--turquoise); }
+    .avatar-susan { background: var(--terra); }
+    .avatar-hannah { background: var(--purple); }
+
+    /* Progress */
     .decisions-progress {
       display: flex;
       align-items: center;
@@ -559,6 +621,7 @@
       white-space: nowrap;
     }
 
+    /* Decision groups */
     .decision-group {
       background: var(--white);
       border-radius: 12px;
@@ -611,10 +674,6 @@
     }
 
     .decision-item:last-child { border-bottom: none; }
-
-    .decision-item.decided {
-      background: #FAFFFE;
-    }
 
     .decision-label {
       font-size: 0.82rem;
@@ -688,6 +747,10 @@
     .decision-option-name {
       font-size: 0.85rem;
       font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      flex-wrap: wrap;
     }
 
     .decision-option-desc {
@@ -696,6 +759,71 @@
       line-height: 1.5;
       margin-top: 0.15rem;
     }
+
+    /* Vote avatars */
+    .vote-avatars {
+      display: inline-flex;
+      gap: 0.25rem;
+      margin-left: 0.2rem;
+      vertical-align: middle;
+    }
+
+    .vote-dot {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.58rem;
+      font-weight: 700;
+      color: white;
+      animation: voteIn 0.3s ease;
+    }
+
+    @keyframes voteIn {
+      from { transform: scale(0); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .vote-count-bar {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 0.35rem;
+    }
+
+    .vote-bar-track {
+      flex: 1;
+      height: 4px;
+      background: #EEEEEE;
+      border-radius: 2px;
+      overflow: hidden;
+      max-width: 80px;
+    }
+
+    .vote-bar-fill {
+      height: 100%;
+      border-radius: 2px;
+      transition: width 0.4s ease;
+      background: var(--turquoise);
+    }
+
+    .vote-count-label {
+      font-size: 0.7rem;
+      color: var(--warm-gray);
+      font-weight: 500;
+    }
+
+    .no-voter-msg {
+      text-align: center;
+      padding: 2rem 1rem;
+      color: var(--warm-gray);
+      font-size: 0.9rem;
+    }
+
+    .poll-body { display: none; }
+    .poll-body.visible { display: block; }
 
     /* Footer */
     footer {
@@ -742,174 +870,208 @@
     <a href="#confirmations">Confirm #s</a>
   </nav>
 
-  <!-- ===== DECISIONS ===== -->
+  <!-- ===== DECISIONS / POLL ===== -->
   <section class="decisions-section" id="decisions">
-    <h2>Open Decisions</h2>
-    <p class="decisions-subtitle">Pick your favorites and check them off as you go.</p>
+    <h2>Vote on Open Decisions</h2>
+    <p class="decisions-subtitle">Pick who you are, then vote on each open question. Everyone's votes show up in real time.</p>
+
+    <div class="voter-picker">
+      <span class="voter-picker-label">I'm:</span>
+      <button class="voter-btn" data-voter="lucy" onclick="setVoter('lucy')">
+        <span class="voter-avatar avatar-lucy">L</span> Lucy
+      </button>
+      <button class="voter-btn" data-voter="susan" onclick="setVoter('susan')">
+        <span class="voter-avatar avatar-susan">S</span> Susan
+      </button>
+      <button class="voter-btn" data-voter="hannah" onclick="setVoter('hannah')">
+        <span class="voter-avatar avatar-hannah">H</span> Hannah
+      </button>
+    </div>
+
     <div class="decisions-progress">
       <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width: 0%"></div></div>
-      <span class="progress-text" id="progressText">0 / 6 decided</span>
+      <span class="progress-text" id="progressText">0 / 18 votes in</span>
     </div>
 
-    <!-- Friday -->
-    <div class="decision-group" data-group="friday">
-      <div class="decision-group-header">
-        <span class="decision-day-dot" style="background: var(--turquoise);"></span>
-        <h3>Friday, May 22</h3>
-        <span class="decided-badge">All decided ✓</span>
-      </div>
+    <div class="no-voter-msg" id="noVoterMsg">👆 Select your name above to start voting</div>
 
-      <div class="decision-item" data-decision="fri-lunch">
-        <div class="decision-label">Lunch (~1:30pm)</div>
-        <div class="decision-options">
-          <label class="decision-option">
-            <input type="radio" name="fri-lunch" value="madrid">
-            <div class="decision-option-content">
-              <div class="decision-option-name">Madrid (along the trail)</div>
-              <div class="decision-option-desc">Java Junction or Mine Shaft Tavern — grab a bite during the Turquoise Trail drive</div>
-            </div>
-          </label>
-          <label class="decision-option">
-            <input type="radio" name="fri-lunch" value="annapurnas">
-            <div class="decision-option-content">
-              <div class="decision-option-name">Annapurna's World Vegetarian Cafe</div>
-              <div class="decision-option-desc">Wait until Santa Fe (~2:30pm). Fully vegan, global flavors. On your way into town from NM-14.</div>
-            </div>
-          </label>
+    <div class="poll-body" id="pollBody">
+
+      <!-- Friday -->
+      <div class="decision-group" data-group="friday">
+        <div class="decision-group-header">
+          <span class="decision-day-dot" style="background: var(--turquoise);"></span>
+          <h3>Friday, May 22</h3>
+          <span class="decided-badge">All voted ✓</span>
+        </div>
+
+        <div class="decision-item" data-decision="fri-lunch">
+          <div class="decision-label">Lunch (~1:30pm)</div>
+          <div class="decision-options">
+            <label class="decision-option" data-value="madrid">
+              <input type="radio" name="fri-lunch" value="madrid">
+              <div class="decision-option-content">
+                <div class="decision-option-name"><span>Madrid (along the trail)</span> <span class="vote-avatars" data-slot="fri-lunch:madrid"></span></div>
+                <div class="decision-option-desc">Java Junction or Mine Shaft Tavern — grab a bite during the Turquoise Trail drive</div>
+                <div class="vote-count-bar" data-bar="fri-lunch:madrid"><div class="vote-bar-track"><div class="vote-bar-fill" style="width:0%"></div></div><span class="vote-count-label">0 votes</span></div>
+              </div>
+            </label>
+            <label class="decision-option" data-value="annapurnas">
+              <input type="radio" name="fri-lunch" value="annapurnas">
+              <div class="decision-option-content">
+                <div class="decision-option-name"><span>Annapurna's World Vegetarian Cafe</span> <span class="vote-avatars" data-slot="fri-lunch:annapurnas"></span></div>
+                <div class="decision-option-desc">Wait until Santa Fe (~2:30pm). Fully vegan, global flavors. On your way into town from NM-14.</div>
+                <div class="vote-count-bar" data-bar="fri-lunch:annapurnas"><div class="vote-bar-track"><div class="vote-bar-fill" style="width:0%"></div></div><span class="vote-count-label">0 votes</span></div>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div class="decision-item" data-decision="fri-dinner">
+          <div class="decision-label">Dinner (7:00pm)</div>
+          <div class="decision-options">
+            <label class="decision-option" data-value="pasquals">
+              <input type="radio" name="fri-dinner" value="pasquals">
+              <div class="decision-option-content">
+                <div class="decision-option-name"><span>Cafe Pasqual's ⭐</span> <span class="vote-avatars" data-slot="fri-dinner:pasquals"></span></div>
+                <div class="decision-option-desc">Iconic Santa Fe. Tofu Mole Enchiladas, Bengal Red Dal. Book now: (505) 983-9340</div>
+                <div class="vote-count-bar" data-bar="fri-dinner:pasquals"><div class="vote-bar-track"><div class="vote-bar-fill" style="width:0%"></div></div><span class="vote-count-label">0 votes</span></div>
+              </div>
+            </label>
+            <label class="decision-option" data-value="coyote">
+              <input type="radio" name="fri-dinner" value="coyote">
+              <div class="decision-option-content">
+                <div class="decision-option-name"><span>Coyote Cafe Rooftop Cantina</span> <span class="vote-avatars" data-slot="fri-dinner:coyote"></span></div>
+                <div class="decision-option-desc">Great rooftop vibes. Vegan tacos (no cotija). Better as drinks + small plates. (505) 983-1615</div>
+                <div class="vote-count-bar" data-bar="fri-dinner:coyote"><div class="vote-bar-track"><div class="vote-bar-fill" style="width:0%"></div></div><span class="vote-count-label">0 votes</span></div>
+              </div>
+            </label>
+          </div>
         </div>
       </div>
 
-      <div class="decision-item" data-decision="fri-dinner">
-        <div class="decision-label">Dinner (7:00pm)</div>
-        <div class="decision-options">
-          <label class="decision-option">
-            <input type="radio" name="fri-dinner" value="pasquals">
-            <div class="decision-option-content">
-              <div class="decision-option-name">Cafe Pasqual's ⭐</div>
-              <div class="decision-option-desc">Iconic Santa Fe. Tofu Mole Enchiladas, Bengal Red Dal. Book now: (505) 983-9340</div>
-            </div>
-          </label>
-          <label class="decision-option">
-            <input type="radio" name="fri-dinner" value="coyote">
-            <div class="decision-option-content">
-              <div class="decision-option-name">Coyote Cafe Rooftop Cantina</div>
-              <div class="decision-option-desc">Great rooftop vibes. Vegan tacos (no cotija). Better as drinks + small plates. (505) 983-1615</div>
-            </div>
-          </label>
+      <!-- Saturday -->
+      <div class="decision-group" data-group="saturday">
+        <div class="decision-group-header">
+          <span class="decision-day-dot" style="background: var(--terra);"></span>
+          <h3>Saturday, May 23</h3>
+          <span class="decided-badge">All voted ✓</span>
         </div>
-      </div>
-    </div>
 
-    <!-- Saturday -->
-    <div class="decision-group" data-group="saturday">
-      <div class="decision-group-header">
-        <span class="decision-day-dot" style="background: var(--terra);"></span>
-        <h3>Saturday, May 23</h3>
-        <span class="decided-badge">All decided ✓</span>
-      </div>
-
-      <div class="decision-item" data-decision="sat-lunch">
-        <div class="decision-label">Late Lunch (~1:00pm, post-Bandelier)</div>
-        <div class="decision-options">
-          <label class="decision-option">
-            <input type="radio" name="sat-lunch" value="jambo">
-            <div class="decision-option-content">
-              <div class="decision-option-name">Jambo Cafe ⭐</div>
-              <div class="decision-option-desc">African-Caribbean. Curried Black Bean Soup, Coconut Tofu Curry, Hummus Plate. 10 min drive. (505) 473-1269</div>
-            </div>
-          </label>
-          <label class="decision-option">
-            <input type="radio" name="sat-lunch" value="shed">
-            <div class="decision-option-content">
-              <div class="decision-option-name">The Shed</div>
-              <div class="decision-option-desc">Classic NM since 1953. Famous chile. Limited vegan but iconic atmosphere. Walk-ins only, 11am–2:30pm.</div>
-            </div>
-          </label>
+        <div class="decision-item" data-decision="sat-lunch">
+          <div class="decision-label">Late Lunch (~1:00pm, post-Bandelier)</div>
+          <div class="decision-options">
+            <label class="decision-option" data-value="jambo">
+              <input type="radio" name="sat-lunch" value="jambo">
+              <div class="decision-option-content">
+                <div class="decision-option-name"><span>Jambo Cafe ⭐</span> <span class="vote-avatars" data-slot="sat-lunch:jambo"></span></div>
+                <div class="decision-option-desc">African-Caribbean. Curried Black Bean Soup, Coconut Tofu Curry, Hummus Plate. 10 min drive. (505) 473-1269</div>
+                <div class="vote-count-bar" data-bar="sat-lunch:jambo"><div class="vote-bar-track"><div class="vote-bar-fill" style="width:0%"></div></div><span class="vote-count-label">0 votes</span></div>
+              </div>
+            </label>
+            <label class="decision-option" data-value="shed">
+              <input type="radio" name="sat-lunch" value="shed">
+              <div class="decision-option-content">
+                <div class="decision-option-name"><span>The Shed</span> <span class="vote-avatars" data-slot="sat-lunch:shed"></span></div>
+                <div class="decision-option-desc">Classic NM since 1953. Famous chile. Limited vegan but iconic atmosphere. Walk-ins only, 11am–2:30pm.</div>
+                <div class="vote-count-bar" data-bar="sat-lunch:shed"><div class="vote-bar-track"><div class="vote-bar-fill" style="width:0%"></div></div><span class="vote-count-label">0 votes</span></div>
+              </div>
+            </label>
+          </div>
         </div>
-      </div>
 
-      <div class="decision-item" data-decision="sat-dinner">
-        <div class="decision-label">Dinner (~8:00pm, post-Meow Wolf)</div>
-        <div class="decision-options">
-          <label class="decision-option">
-            <input type="radio" name="sat-dinner" value="annapurnas-dinner">
-            <div class="decision-option-content">
-              <div class="decision-option-name">Annapurna's World Vegetarian Cafe ⭐</div>
-              <div class="decision-option-desc">5 min from Meow Wolf. Fully vegan. Pad thai, enchiladas, masala fries, golden milk.</div>
-            </div>
-          </label>
-          <label class="decision-option">
-            <input type="radio" name="sat-dinner" value="onesacred">
-            <div class="decision-option-content">
-              <div class="decision-option-name">Apothecary Dining at One Sacred</div>
-              <div class="decision-option-desc">Splurge option on the Plaza. Always GF, vegan options. Elevated, healing-focused dining.</div>
-            </div>
-          </label>
-        </div>
-      </div>
-    </div>
-
-    <!-- Sunday -->
-    <div class="decision-group" data-group="sunday">
-      <div class="decision-group-header">
-        <span class="decision-day-dot" style="background: var(--sage);"></span>
-        <h3>Sunday, May 24</h3>
-        <span class="decided-badge">All decided ✓</span>
-      </div>
-
-      <div class="decision-item" data-decision="sun-afternoon">
-        <div class="decision-label">Afternoon (~3:30pm, after Izanami)</div>
-        <div class="decision-options">
-          <label class="decision-option">
-            <input type="radio" name="sun-afternoon" value="canyon-road">
-            <div class="decision-option-content">
-              <div class="decision-option-name">🎨 Canyon Road Gallery Walk</div>
-              <div class="decision-option-desc">Steps from hotel. 80+ galleries, jewelry shops, sculpture gardens. Some closed Sun but many open for Memorial Day.</div>
-            </div>
-          </label>
-          <label class="decision-option">
-            <input type="radio" name="sun-afternoon" value="museums">
-            <div class="decision-option-content">
-              <div class="decision-option-name">🖼️ Museum Afternoon</div>
-              <div class="decision-option-desc">Georgia O'Keeffe Museum (near Plaza, 1–1.5 hrs) and/or Museum of International Folk Art.</div>
-            </div>
-          </label>
-          <label class="decision-option">
-            <input type="radio" name="sun-afternoon" value="relaxed">
-            <div class="decision-option-content">
-              <div class="decision-option-name">🍹 Relaxed Afternoon</div>
-              <div class="decision-option-desc">Wander the Plaza, revisit shops, grab a margarita on a patio.</div>
-            </div>
-          </label>
+        <div class="decision-item" data-decision="sat-dinner">
+          <div class="decision-label">Dinner (~8:00pm, post-Meow Wolf)</div>
+          <div class="decision-options">
+            <label class="decision-option" data-value="annapurnas-dinner">
+              <input type="radio" name="sat-dinner" value="annapurnas-dinner">
+              <div class="decision-option-content">
+                <div class="decision-option-name"><span>Annapurna's World Vegetarian Cafe ⭐</span> <span class="vote-avatars" data-slot="sat-dinner:annapurnas-dinner"></span></div>
+                <div class="decision-option-desc">5 min from Meow Wolf. Fully vegan. Pad thai, enchiladas, masala fries, golden milk.</div>
+                <div class="vote-count-bar" data-bar="sat-dinner:annapurnas-dinner"><div class="vote-bar-track"><div class="vote-bar-fill" style="width:0%"></div></div><span class="vote-count-label">0 votes</span></div>
+              </div>
+            </label>
+            <label class="decision-option" data-value="onesacred">
+              <input type="radio" name="sat-dinner" value="onesacred">
+              <div class="decision-option-content">
+                <div class="decision-option-name"><span>Apothecary Dining at One Sacred</span> <span class="vote-avatars" data-slot="sat-dinner:onesacred"></span></div>
+                <div class="decision-option-desc">Splurge option on the Plaza. Always GF, vegan options. Elevated, healing-focused dining.</div>
+                <div class="vote-count-bar" data-bar="sat-dinner:onesacred"><div class="vote-bar-track"><div class="vote-bar-fill" style="width:0%"></div></div><span class="vote-count-label">0 votes</span></div>
+              </div>
+            </label>
+          </div>
         </div>
       </div>
 
-      <div class="decision-item" data-decision="sun-dinner">
-        <div class="decision-label">Dinner (7:00pm)</div>
-        <div class="decision-options">
-          <label class="decision-option">
-            <input type="radio" name="sun-dinner" value="sweetwater">
-            <div class="decision-option-content">
-              <div class="decision-option-name">Sweetwater Harvest Kitchen ⭐</div>
-              <div class="decision-option-desc">Best Vegetarian + Best GF in Santa Fe. Jackfruit Tacos, Quinoa Enchilada Bake, Vegan Chili Cheese Fries. Dinner 5–8pm. (505) 795-7383</div>
-            </div>
-          </label>
-          <label class="decision-option">
-            <input type="radio" name="sun-dinner" value="pasquals-sun">
-            <div class="decision-option-content">
-              <div class="decision-option-name">Cafe Pasqual's</div>
-              <div class="decision-option-desc">If you didn't go Friday. Tofu Mole Enchiladas, Bengal Red Dal.</div>
-            </div>
-          </label>
-          <label class="decision-option">
-            <input type="radio" name="sun-dinner" value="jambo-sun">
-            <div class="decision-option-content">
-              <div class="decision-option-name">Jambo Cafe</div>
-              <div class="decision-option-desc">If you didn't go Saturday. Note: closed Sundays — swap with another day.</div>
-            </div>
-          </label>
+      <!-- Sunday -->
+      <div class="decision-group" data-group="sunday">
+        <div class="decision-group-header">
+          <span class="decision-day-dot" style="background: var(--sage);"></span>
+          <h3>Sunday, May 24</h3>
+          <span class="decided-badge">All voted ✓</span>
+        </div>
+
+        <div class="decision-item" data-decision="sun-afternoon">
+          <div class="decision-label">Afternoon (~3:30pm, after Izanami)</div>
+          <div class="decision-options">
+            <label class="decision-option" data-value="canyon-road">
+              <input type="radio" name="sun-afternoon" value="canyon-road">
+              <div class="decision-option-content">
+                <div class="decision-option-name"><span>🎨 Canyon Road Gallery Walk</span> <span class="vote-avatars" data-slot="sun-afternoon:canyon-road"></span></div>
+                <div class="decision-option-desc">Steps from hotel. 80+ galleries, jewelry shops, sculpture gardens. Some closed Sun but many open for Memorial Day.</div>
+                <div class="vote-count-bar" data-bar="sun-afternoon:canyon-road"><div class="vote-bar-track"><div class="vote-bar-fill" style="width:0%"></div></div><span class="vote-count-label">0 votes</span></div>
+              </div>
+            </label>
+            <label class="decision-option" data-value="museums">
+              <input type="radio" name="sun-afternoon" value="museums">
+              <div class="decision-option-content">
+                <div class="decision-option-name"><span>🖼️ Museum Afternoon</span> <span class="vote-avatars" data-slot="sun-afternoon:museums"></span></div>
+                <div class="decision-option-desc">Georgia O'Keeffe Museum (near Plaza, 1–1.5 hrs) and/or Museum of International Folk Art.</div>
+                <div class="vote-count-bar" data-bar="sun-afternoon:museums"><div class="vote-bar-track"><div class="vote-bar-fill" style="width:0%"></div></div><span class="vote-count-label">0 votes</span></div>
+              </div>
+            </label>
+            <label class="decision-option" data-value="relaxed">
+              <input type="radio" name="sun-afternoon" value="relaxed">
+              <div class="decision-option-content">
+                <div class="decision-option-name"><span>🍹 Relaxed Afternoon</span> <span class="vote-avatars" data-slot="sun-afternoon:relaxed"></span></div>
+                <div class="decision-option-desc">Wander the Plaza, revisit shops, grab a margarita on a patio.</div>
+                <div class="vote-count-bar" data-bar="sun-afternoon:relaxed"><div class="vote-bar-track"><div class="vote-bar-fill" style="width:0%"></div></div><span class="vote-count-label">0 votes</span></div>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div class="decision-item" data-decision="sun-dinner">
+          <div class="decision-label">Dinner (7:00pm)</div>
+          <div class="decision-options">
+            <label class="decision-option" data-value="sweetwater">
+              <input type="radio" name="sun-dinner" value="sweetwater">
+              <div class="decision-option-content">
+                <div class="decision-option-name"><span>Sweetwater Harvest Kitchen ⭐</span> <span class="vote-avatars" data-slot="sun-dinner:sweetwater"></span></div>
+                <div class="decision-option-desc">Best Vegetarian + Best GF in Santa Fe. Jackfruit Tacos, Quinoa Enchilada Bake, Vegan Chili Cheese Fries. Dinner 5–8pm. (505) 795-7383</div>
+                <div class="vote-count-bar" data-bar="sun-dinner:sweetwater"><div class="vote-bar-track"><div class="vote-bar-fill" style="width:0%"></div></div><span class="vote-count-label">0 votes</span></div>
+              </div>
+            </label>
+            <label class="decision-option" data-value="pasquals-sun">
+              <input type="radio" name="sun-dinner" value="pasquals-sun">
+              <div class="decision-option-content">
+                <div class="decision-option-name"><span>Cafe Pasqual's</span> <span class="vote-avatars" data-slot="sun-dinner:pasquals-sun"></span></div>
+                <div class="decision-option-desc">If you didn't go Friday. Tofu Mole Enchiladas, Bengal Red Dal.</div>
+                <div class="vote-count-bar" data-bar="sun-dinner:pasquals-sun"><div class="vote-bar-track"><div class="vote-bar-fill" style="width:0%"></div></div><span class="vote-count-label">0 votes</span></div>
+              </div>
+            </label>
+            <label class="decision-option" data-value="jambo-sun">
+              <input type="radio" name="sun-dinner" value="jambo-sun">
+              <div class="decision-option-content">
+                <div class="decision-option-name"><span>Jambo Cafe</span> <span class="vote-avatars" data-slot="sun-dinner:jambo-sun"></span></div>
+                <div class="decision-option-desc">If you didn't go Saturday. Note: closed Sundays — swap with another day.</div>
+                <div class="vote-count-bar" data-bar="sun-dinner:jambo-sun"><div class="vote-bar-track"><div class="vote-bar-fill" style="width:0%"></div></div><span class="vote-count-label">0 votes</span></div>
+              </div>
+            </label>
+          </div>
         </div>
       </div>
+
     </div>
   </section>
 
@@ -1405,71 +1567,150 @@
   window.addEventListener('scroll', updateActiveNav, { passive: true });
   updateActiveNav();
 
-  // Decisions logic with localStorage
-  const STORAGE_KEY = 'sf-trip-decisions';
-  const totalDecisions = 6;
+  // Poll logic with per-voter localStorage
+  const STORAGE_KEY = 'sf-trip-poll';
+  const VOTER_KEY = 'sf-trip-voter';
+  const VOTERS = ['lucy', 'susan', 'hannah'];
+  const QUESTIONS = ['fri-lunch', 'fri-dinner', 'sat-lunch', 'sat-dinner', 'sun-afternoon', 'sun-dinner'];
+  const TOTAL_VOTES = VOTERS.length * QUESTIONS.length;
 
-  function loadDecisions() {
+  const avatarConfig = {
+    lucy:  { initial: 'L', cls: 'avatar-lucy' },
+    susan: { initial: 'S', cls: 'avatar-susan' },
+    hannah:{ initial: 'H', cls: 'avatar-hannah' }
+  };
+
+  let currentVoter = localStorage.getItem(VOTER_KEY) || null;
+
+  function loadPoll() {
     try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; } catch { return {}; }
   }
 
-  function saveDecisions(data) {
+  function savePoll(data) {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
   }
 
-  function updateProgress() {
-    const data = loadDecisions();
-    const decided = Object.keys(data).length;
-    const pct = Math.round((decided / totalDecisions) * 100);
-    document.getElementById('progressFill').style.width = pct + '%';
-    document.getElementById('progressText').textContent = decided + ' / ' + totalDecisions + ' decided';
+  function setVoter(name) {
+    currentVoter = name;
+    localStorage.setItem(VOTER_KEY, name);
 
-    document.querySelectorAll('.decision-group').forEach(group => {
-      const items = group.querySelectorAll('.decision-item');
-      let allDone = true;
-      items.forEach(item => {
-        const name = item.querySelector('input[type="radio"]').name;
-        if (data[name]) {
-          item.classList.add('decided');
-        } else {
-          item.classList.remove('decided');
-          allDone = false;
-        }
-      });
-      group.classList.toggle('all-decided', allDone);
+    document.querySelectorAll('.voter-btn').forEach(b => {
+      b.classList.toggle('active', b.dataset.voter === name);
     });
+
+    document.getElementById('noVoterMsg').style.display = 'none';
+    document.getElementById('pollBody').classList.add('visible');
+
+    loadVoterSelections();
+    renderAllVotes();
   }
 
-  function initDecisions() {
-    const data = loadDecisions();
+  function loadVoterSelections() {
+    const poll = loadPoll();
+    const voterData = poll[currentVoter] || {};
 
-    Object.entries(data).forEach(([name, value]) => {
-      const radio = document.querySelector(`input[name="${name}"][value="${value}"]`);
+    document.querySelectorAll('input[type="radio"]').forEach(r => {
+      r.checked = false;
+      r.closest('.decision-option').classList.remove('selected');
+    });
+
+    Object.entries(voterData).forEach(([question, value]) => {
+      const radio = document.querySelector(`input[name="${question}"][value="${value}"]`);
       if (radio) {
         radio.checked = true;
         radio.closest('.decision-option').classList.add('selected');
       }
     });
+  }
+
+  function renderAllVotes() {
+    const poll = loadPoll();
+
+    document.querySelectorAll('.vote-avatars').forEach(slot => {
+      slot.innerHTML = '';
+    });
+
+    document.querySelectorAll('.vote-count-bar').forEach(bar => {
+      bar.querySelector('.vote-bar-fill').style.width = '0%';
+      bar.querySelector('.vote-count-label').textContent = '0 votes';
+    });
+
+    const voteCounts = {};
+
+    VOTERS.forEach(voter => {
+      const voterData = poll[voter] || {};
+      Object.entries(voterData).forEach(([question, value]) => {
+        const key = question + ':' + value;
+        if (!voteCounts[key]) voteCounts[key] = [];
+        voteCounts[key].push(voter);
+
+        const slot = document.querySelector(`[data-slot="${key}"]`);
+        if (slot) {
+          const dot = document.createElement('span');
+          dot.className = 'vote-dot ' + avatarConfig[voter].cls;
+          dot.textContent = avatarConfig[voter].initial;
+          slot.appendChild(dot);
+        }
+      });
+    });
+
+    Object.entries(voteCounts).forEach(([key, voters]) => {
+      const bar = document.querySelector(`[data-bar="${key}"]`);
+      if (bar) {
+        const pct = Math.round((voters.length / VOTERS.length) * 100);
+        bar.querySelector('.vote-bar-fill').style.width = pct + '%';
+        bar.querySelector('.vote-count-label').textContent = voters.length + (voters.length === 1 ? ' vote' : ' votes');
+      }
+    });
+
+    // Progress
+    let totalVoted = 0;
+    VOTERS.forEach(v => { totalVoted += Object.keys(poll[v] || {}).length; });
+    const pct = Math.round((totalVoted / TOTAL_VOTES) * 100);
+    document.getElementById('progressFill').style.width = pct + '%';
+    document.getElementById('progressText').textContent = totalVoted + ' / ' + TOTAL_VOTES + ' votes in';
+
+    // Group badges
+    document.querySelectorAll('.decision-group').forEach(group => {
+      const items = group.querySelectorAll('.decision-item');
+      let allVoted = true;
+      items.forEach(item => {
+        const qName = item.querySelector('input[type="radio"]').name;
+        let allThree = true;
+        VOTERS.forEach(v => { if (!(poll[v] || {})[qName]) allThree = false; });
+        if (!allThree) allVoted = false;
+      });
+      group.classList.toggle('all-decided', allVoted);
+    });
+  }
+
+  function initPoll() {
+    if (currentVoter) {
+      setVoter(currentVoter);
+    }
 
     document.querySelectorAll('input[type="radio"]').forEach(radio => {
       radio.addEventListener('change', function() {
-        const data = loadDecisions();
-        data[this.name] = this.value;
-        saveDecisions(data);
+        if (!currentVoter) return;
+
+        const poll = loadPoll();
+        if (!poll[currentVoter]) poll[currentVoter] = {};
+        poll[currentVoter][this.name] = this.value;
+        savePoll(poll);
 
         this.closest('.decision-options').querySelectorAll('.decision-option').forEach(opt => {
           opt.classList.remove('selected');
         });
         this.closest('.decision-option').classList.add('selected');
 
-        updateProgress();
+        renderAllVotes();
       });
     });
 
-    updateProgress();
+    renderAllVotes();
   }
 
-  initDecisions();
+  initPoll();
 </script>
 
 </body>
