@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Santa Fe Girls Trip — May 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --turquoise: #3AAFA9;
+      --turquoise-light: #DEF2F1;
+      --terra: #C1666B;
+      --terra-light: #FCEAEB;
+      --sand: #F5E6CC;
+      --sand-dark: #D4A76A;
+      --sage: #6B8F71;
+      --sage-light: #E8F0E9;
+      --night: #2B2D42;
+      --warm-gray: #8D99AE;
+      --cream: #FEFCF3;
+      --white: #FFFFFF;
+      --purple: #7B6D8D;
+      --purple-light: #F0ECF4;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--cream);
+      color: var(--night);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #2B2D42 0%, #3AAFA9 50%, #C1666B 100%);
+      color: white;
+      text-align: center;
+      padding: 4rem 2rem 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      position: relative;
+    }
+
+    .hero .subtitle {
+      font-size: 1.15rem;
+      font-weight: 300;
+      opacity: 0.9;
+      position: relative;
+    }
+
+    .hero .dates {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.4rem 1.2rem;
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 2rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      position: relative;
+    }
+
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 1.5rem 4rem;
+    }
+
+    /* Navigation tabs */
+    .day-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--cream);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      padding: 0;
+      margin: 0 -1.5rem;
+      display: flex;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .day-nav::-webkit-scrollbar { display: none; }
+
+    .day-nav a {
+      flex: 1;
+      min-width: max-content;
+      text-align: center;
+      padding: 0.9rem 1.2rem;
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--warm-gray);
+      border-bottom: 3px solid transparent;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+
+    .day-nav a:hover, .day-nav a.active {
+      color: var(--turquoise);
+      border-bottom-color: var(--turquoise);
+    }
+
+    /* Info banner */
+    .info-banner {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 2rem 0;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+    }
+
+    .info-item .icon {
+      font-size: 1.2rem;
+      line-height: 1.5;
+      flex-shrink: 0;
+    }
+
+    .info-item .label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--warm-gray);
+      font-weight: 600;
+    }
+
+    .info-item .value {
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .info-item .detail {
+      font-size: 0.78rem;
+      color: var(--warm-gray);
+    }
+
+    /* Day sections */
+    .day-section {
+      margin-top: 2.5rem;
+      scroll-margin-top: 60px;
+    }
+
+    .day-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .day-badge {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: white;
+      flex-shrink: 0;
+    }
+
+    .day-badge .num { font-size: 1.3rem; line-height: 1; }
+    .day-badge .dow { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.08em; opacity: 0.85; }
+
+    .day-header h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    .day-header .day-subtitle {
+      font-size: 0.85rem;
+      color: var(--warm-gray);
+      font-weight: 400;
+    }
+
+    /* Color coding per day */
+    .day-fri .day-badge { background: var(--turquoise); }
+    .day-sat .day-badge { background: var(--terra); }
+    .day-sun .day-badge { background: var(--sage); }
+    .day-mon .day-badge { background: var(--purple); }
+
+    /* Timeline */
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 5px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.08), rgba(0,0,0,0.03));
+    }
+
+    .event {
+      position: relative;
+      margin-bottom: 1.5rem;
+    }
+
+    .event::before {
+      content: '';
+      position: absolute;
+      left: -2rem;
+      top: 8px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      border: 2px solid var(--warm-gray);
+      background: var(--cream);
+    }
+
+    .event.confirmed::before {
+      background: var(--turquoise);
+      border-color: var(--turquoise);
+    }
+
+    .event-time {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--warm-gray);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.25rem;
+    }
+
+    .event-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+
+    .event-body {
+      font-size: 0.88rem;
+      color: #555;
+      line-height: 1.65;
+    }
+
+    .event-body p { margin-bottom: 0.5rem; }
+    .event-body p:last-child { margin-bottom: 0; }
+
+    /* Tags */
+    .tag {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+      margin-right: 0.3rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .tag-confirmed { background: var(--turquoise-light); color: var(--turquoise); }
+    .tag-restaurant { background: var(--terra-light); color: var(--terra); }
+    .tag-activity { background: var(--sage-light); color: var(--sage); }
+    .tag-shopping { background: var(--sand); color: #8B6914; }
+    .tag-option { background: var(--purple-light); color: var(--purple); }
+    .tag-vegan { background: #E8F5E9; color: #2E7D32; }
+
+    /* Recommendation card */
+    .rec-card {
+      background: var(--white);
+      border-radius: 10px;
+      padding: 1rem 1.2rem;
+      margin: 0.8rem 0;
+      border-left: 3px solid var(--terra);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+
+    .rec-card.alt {
+      border-left-color: var(--warm-gray);
+      opacity: 0.85;
+    }
+
+    .rec-card .rec-name {
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 0.15rem;
+    }
+
+    .rec-card .rec-address {
+      font-size: 0.78rem;
+      color: var(--warm-gray);
+    }
+
+    .rec-card .rec-detail {
+      font-size: 0.85rem;
+      color: #555;
+      margin-top: 0.4rem;
+    }
+
+    .rec-card .rec-vegan {
+      margin-top: 0.4rem;
+    }
+
+    /* Confirmation pill */
+    .conf {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.75rem;
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      background: var(--turquoise-light);
+      color: var(--turquoise);
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      font-weight: 500;
+    }
+
+    /* Numbered list */
+    .shop-list {
+      list-style: none;
+      counter-reset: shop;
+    }
+
+    .shop-list li {
+      counter-increment: shop;
+      padding: 0.4rem 0;
+      font-size: 0.88rem;
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .shop-list li::before {
+      content: counter(shop);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--sand);
+      color: #8B6914;
+      font-size: 0.7rem;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .shop-list strong { font-weight: 600; }
+
+    /* Tip callout */
+    .tip {
+      background: #FFF8E1;
+      border-radius: 8px;
+      padding: 0.8rem 1rem;
+      font-size: 0.85rem;
+      margin: 0.8rem 0;
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .tip::before { content: '💡'; flex-shrink: 0; }
+
+    /* Options grid */
+    .options-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 0.8rem;
+      margin: 0.8rem 0;
+    }
+
+    .option-card {
+      background: var(--white);
+      border-radius: 10px;
+      padding: 1rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+      border-top: 3px solid var(--warm-gray);
+    }
+
+    .option-card h4 {
+      font-size: 0.88rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+
+    .option-card p {
+      font-size: 0.82rem;
+      color: #555;
+      line-height: 1.55;
+    }
+
+    /* Confirmation table */
+    .conf-section {
+      margin-top: 3rem;
+      scroll-margin-top: 60px;
+    }
+
+    .conf-section h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .conf-table {
+      width: 100%;
+      background: var(--white);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+      border-collapse: collapse;
+    }
+
+    .conf-table th {
+      text-align: left;
+      padding: 0.7rem 1rem;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--warm-gray);
+      background: #FAFAFA;
+      border-bottom: 1px solid #EEE;
+    }
+
+    .conf-table td {
+      padding: 0.6rem 1rem;
+      font-size: 0.85rem;
+      border-bottom: 1px solid #F0F0F0;
+    }
+
+    .conf-table tr:last-child td { border-bottom: none; }
+
+    .conf-table .mono {
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 0.8rem;
+      color: var(--turquoise);
+      font-weight: 500;
+    }
+
+    /* Packing */
+    .packing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 0.6rem;
+      margin-top: 0.8rem;
+    }
+
+    .pack-item {
+      background: var(--white);
+      border-radius: 8px;
+      padding: 0.7rem 0.9rem;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+
+    .pack-item .pack-icon { font-size: 1.1rem; flex-shrink: 0; }
+
+    /* Restaurant ref table */
+    .rest-table {
+      width: 100%;
+      background: var(--white);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+      border-collapse: collapse;
+      font-size: 0.82rem;
+      margin: 1rem 0;
+    }
+
+    .rest-table th {
+      text-align: left;
+      padding: 0.6rem 0.8rem;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--warm-gray);
+      background: #FAFAFA;
+      border-bottom: 1px solid #EEE;
+    }
+
+    .rest-table td {
+      padding: 0.55rem 0.8rem;
+      border-bottom: 1px solid #F0F0F0;
+      vertical-align: top;
+    }
+
+    .rest-table tr:last-child td { border-bottom: none; }
+
+    .vegan-full { color: #2E7D32; font-weight: 600; }
+    .vegan-friendly { color: var(--sage); font-weight: 500; }
+    .vegan-limited { color: var(--warm-gray); }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: var(--warm-gray);
+      font-size: 0.8rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .hero { padding: 3rem 1.5rem 2rem; }
+      .info-banner { grid-template-columns: 1fr; }
+      .container { padding: 0 1rem 3rem; }
+      .day-nav a { padding: 0.8rem 0.9rem; font-size: 0.72rem; }
+      .options-grid { grid-template-columns: 1fr; }
+    }
+
+    @media print {
+      .day-nav { position: static; }
+      .hero { background: var(--turquoise) !important; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="hero">
+  <h1>Santa Fe Girls Trip</h1>
+  <p class="subtitle">Lucy, Susan &amp; Hannah</p>
+  <span class="dates">May 22 &ndash; 25, 2026</span>
+</header>
+
+<div class="container">
+
+  <nav class="day-nav" id="nav">
+    <a href="#travel">Travel</a>
+    <a href="#friday">Friday</a>
+    <a href="#saturday">Saturday</a>
+    <a href="#sunday">Sunday</a>
+    <a href="#monday">Monday</a>
+    <a href="#restaurants">Dining</a>
+    <a href="#confirmations">Confirm #s</a>
+  </nav>
+
+  <!-- ===== TRAVEL & LODGING ===== -->
+  <div class="info-banner" id="travel">
+    <div class="info-item">
+      <span class="icon">✈️</span>
+      <div>
+        <div class="label">Arrive</div>
+        <div class="value">Fri May 22 · 12:00pm</div>
+        <div class="detail">UA 3570 → Albuquerque</div>
+      </div>
+    </div>
+    <div class="info-item">
+      <span class="icon">✈️</span>
+      <div>
+        <div class="label">Depart</div>
+        <div class="value">Mon May 25 · 2:20pm</div>
+        <div class="detail">AA 1341 → Chicago</div>
+      </div>
+    </div>
+    <div class="info-item">
+      <span class="icon">🏨</span>
+      <div>
+        <div class="label">Hotel</div>
+        <div class="value">Inn on the Alameda</div>
+        <div class="detail">303 E Alameda St, Santa Fe</div>
+      </div>
+    </div>
+    <div class="info-item">
+      <span class="icon">🚗</span>
+      <div>
+        <div class="label">Car Rental</div>
+        <div class="value">Dollar Rent A Car</div>
+        <div class="detail">Albuquerque Airport</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== FRIDAY ===== -->
+  <section class="day-section day-fri" id="friday">
+    <div class="day-header">
+      <div class="day-badge"><span class="num">22</span><span class="dow">Fri</span></div>
+      <div>
+        <h2>Arrival Day</h2>
+        <div class="day-subtitle">Turquoise Trail · Plaza Shopping · Dinner</div>
+      </div>
+    </div>
+
+    <div class="timeline">
+      <div class="event confirmed">
+        <div class="event-time">12:00pm</div>
+        <div class="event-title">Land in Albuquerque</div>
+        <div class="event-body">
+          <p><span class="tag tag-confirmed">Confirmed</span> UA 3570</p>
+          <p>Pick up rental car at Dollar counter.</p>
+        </div>
+      </div>
+
+      <div class="event">
+        <div class="event-time">~12:45pm</div>
+        <div class="event-title">Turquoise Trail Scenic Byway (NM-14)</div>
+        <div class="event-body">
+          <p><span class="tag tag-activity">Scenic Drive</span></p>
+          <p>Take the scenic route from ABQ to Santa Fe (~1.5–2 hrs with stops vs. 1 hr on I-25). Head east on I-40, then north on NM-14 through the old mining towns of <strong>Golden</strong>, <strong>Los Cerrillos</strong>, and <strong>Madrid</strong> — a quirky art town with galleries, shops, and cafes.</p>
+        </div>
+      </div>
+
+      <div class="event">
+        <div class="event-time">~1:30pm</div>
+        <div class="event-title">Lunch</div>
+        <div class="event-body">
+          <p><span class="tag tag-restaurant">Food</span> <span class="tag tag-option">Choose One</span></p>
+
+          <div class="rec-card">
+            <div class="rec-name">Option A: Grab lunch in Madrid</div>
+            <div class="rec-detail">
+              <strong>Java Junction</strong> (2855 NM-14) — Small cafe, outdoor seating, coffee & light bites. Call ahead for vegan options: (505) 438-2772.<br>
+              <strong>Mine Shaft Tavern</strong> (2846 NM-14) — Historic saloon with veggie burger & salads (ask for vegan). Live music on weekends.
+            </div>
+          </div>
+
+          <div class="rec-card">
+            <div class="rec-name">Option B: Wait for Santa Fe (~2:30pm)</div>
+            <div class="rec-address">Annapurna's World Vegetarian Cafe · 1620 St Michaels Dr</div>
+            <div class="rec-detail">Fully vegan/vegetarian with global flavors — masala fries, pad thai, cauliflower tacos, Mediterranean platter. Women-owned. On your way into town from NM-14.</div>
+            <div class="rec-vegan"><span class="tag tag-vegan">100% Veg/Vegan</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="event">
+        <div class="event-time">~3:00pm</div>
+        <div class="event-title">Check into Inn on the Alameda</div>
+        <div class="event-body">
+          <p>Complimentary parking and afternoon wine &amp; cheese reception.</p>
+        </div>
+      </div>
+
+      <div class="event">
+        <div class="event-time">3:30 – 6:00pm</div>
+        <div class="event-title">Walk the Plaza &amp; Shop for Turquoise</div>
+        <div class="event-body">
+          <p><span class="tag tag-shopping">Shopping</span></p>
+          <p>The Inn is two blocks from the Plaza and steps from Canyon Road. Great walking loop:</p>
+          <ol class="shop-list">
+            <li><strong>The Plaza</strong> — Heart of Santa Fe. Browse the shops lining the square.</li>
+            <li><strong>Palace of the Governors Portal</strong> — Native artists sell handcrafted turquoise jewelry daily. Most authentic &amp; often best-priced.</li>
+            <li><strong>Malouf on the Plaza</strong> — Curated Native American jewelry; shop by specific turquoise mine.</li>
+            <li><strong>Santa Fe Goldworks</strong> — Fine turquoise-inlaid gold jewelry since 1972.</li>
+            <li><strong>Keshi – The Zuni Connection</strong> (227 Don Gaspar Ave) — Zuni inlay and petit-point jewelry.</li>
+            <li><strong>Rainbow Man</strong> (107 E Palace Ave) — Authentic Native jewelry since 1945.</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="event">
+        <div class="event-time">7:00pm</div>
+        <div class="event-title">Friday Dinner</div>
+        <div class="event-body">
+          <p><span class="tag tag-restaurant">Dinner</span></p>
+
+          <div class="rec-card">
+            <div class="rec-name">Top Pick: Cafe Pasqual's</div>
+            <div class="rec-address">121 Don Gaspar Ave · 5 min walk from hotel</div>
+            <div class="rec-detail">Iconic Santa Fe restaurant. Vegan options: Tofu Mole Enchiladas ($29), Bengal Red Dal with green chile, turmeric, cauliflower &amp; spinach over jasmine rice ($27).</div>
+            <div class="rec-vegan"><span class="tag tag-vegan">Vegan-Friendly</span></div>
+            <div class="tip">Reservations strongly recommended — call (505) 983-9340.</div>
+          </div>
+
+          <div class="rec-card alt">
+            <div class="rec-name">Backup: Coyote Cafe Rooftop Cantina</div>
+            <div class="rec-address">132 W Water St · 5 min walk</div>
+            <div class="rec-detail">Great rooftop vibe. Vegetarian tacos (skip cotija for vegan) with zucchini, squash, corn, black beans &amp; avocado. Better as a drinks + small plates stop. (505) 983-1615.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SATURDAY ===== -->
+  <section class="day-section day-sat" id="saturday">
+    <div class="day-header">
+      <div class="day-badge"><span class="num">23</span><span class="dow">Sat</span></div>
+      <div>
+        <h2>Farmers Market, Bandelier &amp; Meow Wolf</h2>
+        <div class="day-subtitle">Big adventure day</div>
+      </div>
+    </div>
+
+    <div class="timeline">
+      <div class="event">
+        <div class="event-time">8:00am</div>
+        <div class="event-title">Santa Fe Farmers Market</div>
+        <div class="event-body">
+          <p><span class="tag tag-activity">Activity</span></p>
+          <p><strong>Location:</strong> Railyard Market Pavilion, 1607 Paseo de Peralta (at S. Guadalupe St)<br>
+          <strong>Hours:</strong> 8am–1pm</p>
+          <p>One of the best farmers markets in the Southwest — up to 130 local vendors with fresh produce, chile, honey, bread, flowers. Great for breakfast bites (tamales, fresh fruit, pastries). ~15 min walk from the Inn or a quick drive.</p>
+        </div>
+      </div>
+
+      <div class="event">
+        <div class="event-time">9:30am</div>
+        <div class="event-title">Drive to Bandelier National Monument</div>
+        <div class="event-body">
+          <p><span class="tag tag-activity">National Monument</span></p>
+          <p><strong>Drive:</strong> ~1 hour from Santa Fe · 15 Entrance Rd, Los Alamos, NM</p>
+          <p>Ancient Ancestral Pueblo cliff dwellings and cave homes carved into volcanic rock. The <strong>Main Loop Trail</strong> (1.2 mi, easy-moderate) is the must-do — walk among ruins and climb ladders into cliff dwellings. Allow 1.5–2 hours.</p>
+          <div class="tip">Visitor Center opens at 9am. During Memorial Day weekend, a free shuttle may run from the Frey Trail lot (every 30 min from 10am). Arrive early. Bring water, sunscreen, hat — elevation ~6,600 ft.</div>
+        </div>
+      </div>
+
+      <div class="event">
+        <div class="event-time">~12:30pm</div>
+        <div class="event-title">Drive back to Santa Fe</div>
+        <div class="event-body"><p>~1 hour return drive.</p></div>
+      </div>
+
+      <div class="event">
+        <div class="event-time">~1:00pm</div>
+        <div class="event-title">Late Lunch</div>
+        <div class="event-body">
+          <p><span class="tag tag-restaurant">Lunch</span></p>
+
+          <div class="rec-card">
+            <div class="rec-name">Top Pick: Jambo Cafe</div>
+            <div class="rec-address">2010 Cerrillos Rd · 10 min drive from hotel</div>
+            <div class="rec-detail">African-Caribbean flavors. Vegan options: Curried Black Bean &amp; Sweet Potato Soup (award-winning), Coconut Organic Tofu Curry with basmati rice, Sweet Smoked Paprika Hummus Plate. Open 11am–9pm, closed Sundays. (505) 473-1269.</div>
+            <div class="rec-vegan"><span class="tag tag-vegan">Vegan-Friendly</span></div>
+          </div>
+
+          <div class="rec-card alt">
+            <div class="rec-name">Backup: The Shed</div>
+            <div class="rec-address">113½ E Palace Ave · 5 min walk from hotel</div>
+            <div class="rec-detail">Santa Fe institution since 1953. Famous red &amp; green chile. Limited vegan (salads, beans, rice) but iconic atmosphere. Walk-ins for lunch only (11am–2:30pm).</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="event">
+        <div class="event-time">2:30 – 4:30pm</div>
+        <div class="event-title">Rest &amp; Refresh at Hotel</div>
+        <div class="event-body"><p>Recharge before Meow Wolf. The Inn has nice courtyard areas to relax in.</p></div>
+      </div>
+
+      <div class="event confirmed">
+        <div class="event-time">5:20pm</div>
+        <div class="event-title">Meow Wolf — House of Eternal Return</div>
+        <div class="event-body">
+          <p><span class="tag tag-confirmed">Confirmed</span> <span class="tag tag-activity">Experience</span></p>
+          <p><strong>Address:</strong> 1352 Rufina Circle (~10 min drive from hotel)<br>
+          <span class="conf">Order # RFS-T4W-9K55</span></p>
+          <p>Immersive, mind-bending art experience — allow 2–3 hours. A full house to explore with hidden passages, alternate dimensions, and interactive installations.</p>
+        </div>
+      </div>
+
+      <div class="event">
+        <div class="event-time">~8:00pm</div>
+        <div class="event-title">Saturday Dinner</div>
+        <div class="event-body">
+          <p><span class="tag tag-restaurant">Dinner</span></p>
+
+          <div class="rec-card">
+            <div class="rec-name">Top Pick: Annapurna's World Vegetarian Cafe</div>
+            <div class="rec-address">1620 St Michaels Dr · 5 min from Meow Wolf</div>
+            <div class="rec-detail">Perfect post-Meow Wolf dinner. Fully vegan/vegetarian. Global comfort food — pad thai, enchiladas, masala fries, golden milk. Casual and cozy.</div>
+            <div class="rec-vegan"><span class="tag tag-vegan">100% Veg/Vegan</span></div>
+          </div>
+
+          <div class="rec-card alt">
+            <div class="rec-name">Splurge: Apothecary Dining at One Sacred</div>
+            <div class="rec-address">133 W San Francisco St · on the Plaza</div>
+            <div class="rec-detail">Always gluten-free, vegan &amp; vegetarian options. Quality oils (avocado, coconut, olive), sea salt, organic produce. Elevated, healing-focused dining. Check hours: <a href="https://www.onesacred.com" target="_blank">onesacred.com</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SUNDAY ===== -->
+  <section class="day-section day-sun" id="sunday">
+    <div class="day-header">
+      <div class="day-badge"><span class="num">24</span><span class="dow">Sun</span></div>
+      <div>
+        <h2>Spa Day &amp; Exploring</h2>
+        <div class="day-subtitle">Ten Thousand Waves · Izanami · Afternoon adventures</div>
+      </div>
+    </div>
+
+    <div class="timeline">
+      <div class="event">
+        <div class="event-time">9:00am</div>
+        <div class="event-title">Drive to Ten Thousand Waves</div>
+        <div class="event-body">
+          <p>21 Ten Thousand Waves Way · ~15 min drive from hotel, up into the mountains. Allow extra time — the road winds uphill and parking is in the lower lot.</p>
+        </div>
+      </div>
+
+      <div class="event confirmed">
+        <div class="event-time">9:45am</div>
+        <div class="event-title">Ten Thousand Waves Spa</div>
+        <div class="event-body">
+          <p><span class="tag tag-confirmed">Confirmed</span> <span class="tag tag-activity">Spa</span></p>
+          <p><span class="conf"># 100808173191</span></p>
+          <p>Enjoy the communal hot tubs and grounds before your treatments.</p>
+        </div>
+      </div>
+
+      <div class="event confirmed">
+        <div class="event-time">11:30am</div>
+        <div class="event-title">Spa Treatments</div>
+        <div class="event-body">
+          <p><span class="tag tag-confirmed">Confirmed</span></p>
+          <p><strong>Lucy</strong> — Facial <span class="conf"># 100808174267</span><br>
+          <strong>Hannah</strong> — Facial <span class="conf"># 100808174220</span><br>
+          <strong>Susan</strong> — Massage <span class="conf"># 100808174504</span></p>
+        </div>
+      </div>
+
+      <div class="event confirmed">
+        <div class="event-time">1:00pm</div>
+        <div class="event-title">Lunch at Izanami</div>
+        <div class="event-body">
+          <p><span class="tag tag-confirmed">Reserved</span> <span class="tag tag-restaurant">Lunch</span></p>
+          <p>Party of 3, under Susan J. · <span class="conf">OpenTable # 387987</span><br>
+          Table reserved for 2 hrs 15 min. $25/person cancellation fee within 24 hrs.</p>
+          <p>Japanese izakaya-style small plates — perfect for sharing after the spa. Vegan options: roasted mushrooms, grilled eggplant, aged tofu, broccolini, avocado, onigiri, fries, and the Vegetable &amp; Mushroom Donburi. 80% of produce is local and organic in season.</p>
+          <div class="rec-vegan"><span class="tag tag-vegan">Vegan-Friendly</span></div>
+        </div>
+      </div>
+
+      <div class="event">
+        <div class="event-time">~3:30pm</div>
+        <div class="event-title">Sunday Afternoon</div>
+        <div class="event-body">
+          <p><span class="tag tag-option">Choose One</span></p>
+
+          <div class="options-grid">
+            <div class="option-card" style="border-top-color: var(--sage);">
+              <h4>🎨 Canyon Road Gallery Walk</h4>
+              <p>Steps from your hotel. Half a mile of 80+ galleries, jewelry shops &amp; sculpture gardens. Some galleries closed Sundays but many stay open for Memorial Day weekend. Highlights: Ventana Fine Art, Sage Creek Gallery, Canyon Road Contemporary Art.</p>
+            </div>
+            <div class="option-card" style="border-top-color: var(--turquoise);">
+              <h4>🖼️ Museum Afternoon</h4>
+              <p><strong>Georgia O'Keeffe Museum</strong> (217 Johnson St, near Plaza) — Allow 1–1.5 hrs.<br><strong>Museum of International Folk Art</strong> (706 Camino Lejo) — Whimsical, colorful, one of the most unique museums in the country.</p>
+            </div>
+            <div class="option-card" style="border-top-color: var(--sand-dark);">
+              <h4>🍹 Relaxed Afternoon</h4>
+              <p>Wander back through the Plaza, pop into shops you missed on Friday, grab a margarita on a patio.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="event">
+        <div class="event-time">7:00pm</div>
+        <div class="event-title">Sunday Dinner</div>
+        <div class="event-body">
+          <p><span class="tag tag-restaurant">Dinner</span></p>
+
+          <div class="rec-card">
+            <div class="rec-name">Top Pick: Sweetwater Harvest Kitchen</div>
+            <div class="rec-address">1512 Pacheco St · 10 min drive</div>
+            <div class="rec-detail">Named Santa Fe's Best Vegetarian + Best GF Restaurant. Entirely gluten-free kitchen. Vegan options: Scrambled Tofu, Pumpkin Quinoa Veggie Burger, Quinoa Enchilada Bake, Jackfruit Tacos, Vegan Chili Cheese Fries. Dinner Tues–Sat 5–8pm. (505) 795-7383.</div>
+            <div class="rec-vegan"><span class="tag tag-vegan">Vegan-Friendly · All GF</span></div>
+          </div>
+
+          <div class="rec-card alt">
+            <div class="rec-name">Backup: Jambo Cafe (if you didn't go Saturday)</div>
+            <div class="rec-address">2010 Cerrillos Rd · Closed Sundays — swap days if needed</div>
+          </div>
+
+          <div class="rec-card alt">
+            <div class="rec-name">Backup: Cafe Pasqual's (if you didn't go Friday)</div>
+            <div class="rec-address">121 Don Gaspar Ave</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MONDAY ===== -->
+  <section class="day-section day-mon" id="monday">
+    <div class="day-header">
+      <div class="day-badge"><span class="num">25</span><span class="dow">Mon</span></div>
+      <div>
+        <h2>Departure Day</h2>
+        <div class="day-subtitle">Memorial Day · Head home</div>
+      </div>
+    </div>
+
+    <div class="timeline">
+      <div class="event">
+        <div class="event-time">9:00 – 10:00am</div>
+        <div class="event-title">Leisurely Morning</div>
+        <div class="event-body">
+          <p>Sleep in, grab breakfast at the Inn, or walk to a nearby cafe.</p>
+          <div class="rec-card">
+            <div class="rec-name">Breakfast idea: Cafe Pasqual's</div>
+            <div class="rec-address">121 Don Gaspar Ave · Open 8am–3pm</div>
+            <div class="rec-detail">If you haven't been yet — the vegan options are great in the morning too (tofu chorizo burrito, etc.).</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="event">
+        <div class="event-time">10:30am</div>
+        <div class="event-title">Check Out &amp; Drive to Albuquerque</div>
+        <div class="event-body"><p>~1 hour via I-25 (take the fast route back). Allow time for gas and rental car drop-off.</p></div>
+      </div>
+
+      <div class="event">
+        <div class="event-time">~11:30am</div>
+        <div class="event-title">Optional: Lunch in Albuquerque</div>
+        <div class="event-body">
+          <div class="rec-card">
+            <div class="rec-name">Vegos</div>
+            <div class="rec-address">2904 Indian School Rd NE · 15 min from airport</div>
+            <div class="rec-detail">100% vegan New Mexican food — burritos, enchiladas, tamales. Open Wed–Sun 11am–8pm. A perfect final NM meal.</div>
+            <div class="rec-vegan"><span class="tag tag-vegan">100% Vegan</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="event confirmed">
+        <div class="event-time">2:20pm</div>
+        <div class="event-title">Fly Home</div>
+        <div class="event-body">
+          <p><span class="tag tag-confirmed">Confirmed</span> AA 1341 → Chicago</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== RESTAURANT REFERENCE ===== -->
+  <section class="conf-section" id="restaurants">
+    <h2>Restaurant Quick Reference</h2>
+    <div style="overflow-x: auto;">
+      <table class="rest-table">
+        <thead>
+          <tr><th>Restaurant</th><th>Vegan Level</th><th>Best For</th><th>Location</th><th>Price</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Annapurna's</strong></td><td class="vegan-full">Fully Veg/Vegan</td><td>Any meal</td><td>1620 St Michaels Dr</td><td>$$</td></tr>
+          <tr><td><strong>Cafe Pasqual's</strong></td><td class="vegan-friendly">Vegan-Friendly</td><td>Dinner or breakfast</td><td>121 Don Gaspar Ave</td><td>$$$</td></tr>
+          <tr><td><strong>Jambo Cafe</strong></td><td class="vegan-friendly">Vegan-Friendly</td><td>Lunch/dinner (closed Sun)</td><td>2010 Cerrillos Rd</td><td>$$</td></tr>
+          <tr><td><strong>Izanami</strong></td><td class="vegan-friendly">Vegan-Friendly</td><td>Sunday lunch (reserved)</td><td>Ten Thousand Waves</td><td>$$$</td></tr>
+          <tr><td><strong>Sweetwater Harvest</strong></td><td class="vegan-friendly">Vegan-Friendly · All GF</td><td>Dinner (Tues–Sat 5–8pm)</td><td>1512 Pacheco St</td><td>$$</td></tr>
+          <tr><td><strong>Apothecary / One Sacred</strong></td><td class="vegan-friendly">Vegan-Friendly · All GF</td><td>Special dinner</td><td>133 W San Francisco St</td><td>$$$</td></tr>
+          <tr><td><strong>The Shed</strong></td><td class="vegan-limited">Limited Vegan</td><td>Classic NM experience</td><td>113½ E Palace Ave</td><td>$$</td></tr>
+          <tr><td><strong>Coyote Cafe Rooftop</strong></td><td class="vegan-limited">Limited Vegan</td><td>Drinks &amp; rooftop vibes</td><td>132 W Water St</td><td>$$$</td></tr>
+          <tr><td><strong>Vegos</strong> (ABQ)</td><td class="vegan-full">Fully Vegan</td><td>Monday departure lunch</td><td>2904 Indian School Rd</td><td>$</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===== PACKING ===== -->
+  <section class="conf-section">
+    <h2>Packing Tips</h2>
+    <div class="packing-grid">
+      <div class="pack-item"><span class="pack-icon">🧥</span><div><strong>Layers</strong><br>Highs ~75–80°F, lows ~45–50°F. Evenings cool fast at 7,000 ft.</div></div>
+      <div class="pack-item"><span class="pack-icon">☀️</span><div><strong>Sun protection</strong><br>Sunscreen, hat, sunglasses. UV at altitude is intense.</div></div>
+      <div class="pack-item"><span class="pack-icon">👟</span><div><strong>Walking shoes</strong><br>Lots of walking on Friday &amp; Canyon Road.</div></div>
+      <div class="pack-item"><span class="pack-icon">👙</span><div><strong>Swimsuit</strong><br>For communal tubs at Ten Thousand Waves.</div></div>
+      <div class="pack-item"><span class="pack-icon">🧣</span><div><strong>Light jacket</strong><br>For Meow Wolf (can be cool) and evening dinners.</div></div>
+      <div class="pack-item"><span class="pack-icon">💧</span><div><strong>Water bottle</strong><br>Stay hydrated at altitude, especially at Bandelier.</div></div>
+    </div>
+  </section>
+
+  <!-- ===== CONFIRMATIONS ===== -->
+  <section class="conf-section" id="confirmations">
+    <h2>Confirmation Numbers</h2>
+    <table class="conf-table">
+      <thead>
+        <tr><th>What</th><th>Confirmation #</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Flight in — UA 3570</td><td class="mono">—</td></tr>
+        <tr><td>Flight out — AA 1341</td><td class="mono">—</td></tr>
+        <tr><td>Hotel — Hannah</td><td class="mono">72071386413949</td></tr>
+        <tr><td>Hotel — Lucy &amp; Susan</td><td class="mono">72071386350739</td></tr>
+        <tr><td>Car Rental — Dollar</td><td class="mono">73411320135457</td></tr>
+        <tr><td>Meow Wolf</td><td class="mono">RFS-T4W-9K55</td></tr>
+        <tr><td>Ten Thousand Waves — Spa 9:45am</td><td class="mono">100808173191</td></tr>
+        <tr><td>Ten Thousand Waves — Lucy facial</td><td class="mono">100808174267</td></tr>
+        <tr><td>Ten Thousand Waves — Hannah facial</td><td class="mono">100808174220</td></tr>
+        <tr><td>Ten Thousand Waves — Susan massage</td><td class="mono">100808174504</td></tr>
+        <tr><td>Izanami lunch — OpenTable</td><td class="mono">387987</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+</div>
+
+<footer>
+  Made with ❤️ for the best girls trip ever 🌵
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  const links = nav.querySelectorAll('a');
+  const sections = document.querySelectorAll('.day-section, .conf-section, .info-banner');
+
+  function updateActiveNav() {
+    let current = '';
+    sections.forEach(section => {
+      const top = section.getBoundingClientRect().top;
+      if (top <= 80) current = section.id;
+    });
+    links.forEach(link => {
+      link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+    });
+  }
+
+  window.addEventListener('scroll', updateActiveNav, { passive: true });
+  updateActiveNav();
+</script>
+
+</body>
+</html>
